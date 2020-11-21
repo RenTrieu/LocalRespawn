@@ -56,8 +56,9 @@ public class Main
             // Safety check
             Material spawnBlock = event.getPlayer().getWorld()
                                .getHighestBlockAt(newX, newZ).getType();
+            Boolean spawnOnWater = this.config.getBoolean("SpawnOnWater");
             if ((spawnBlock == Material.LAVA)
-                || (spawnBlock == Material.WATER)) {
+                || ((spawnBlock == Material.WATER) && (spawnOnWater == false))) {
                 respawnRetries -= 1;
                 safe = false;
                 // Defaults to world spawn if safe random coordinates
