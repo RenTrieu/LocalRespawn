@@ -38,21 +38,21 @@ public class Main
         // If the chosen coordinates are not safe (e.g. there is lava)
         // rechooses the coordinates
         Boolean safe = false;
-        int respawnRetries = config.getInt("RespawnRetries");
-        while (!safe && (respawnRetries > 0)) {
+        int respawnRetries = config.getInt("LocalRespawnRetries");
+        while ((safe == false) && (respawnRetries > 0)) {
             
             // Choosing random coordinate
             int respawnRadius = config.getInt("DeathRespawnRadius");
             Random rand = new Random();
             int xOffset = rand.nextInt(2*respawnRadius)-respawnRadius;
             int zOffset = rand.nextInt(2*respawnRadius)-respawnRadius;
-            int newX = (int) Math.floor(respawnLoc.getX() + xOffset);
-            int newZ = (int) Math.floor(respawnLoc.getZ() + zOffset);
-
+            int newX = (int) Math.floor(respawnLoc.getX() + (double) xOffset);
+            int newZ = (int) Math.floor(respawnLoc.getZ() + (double) zOffset);
+            
             // Choosing ground-level y coordinate
             int newY = event.getPlayer().getWorld()
                        .getHighestBlockAt(newX, newZ).getY();
-            
+
             // Safety check
             Material spawnBlock = event.getPlayer().getWorld()
                                .getHighestBlockAt(newX, newZ).getType();
