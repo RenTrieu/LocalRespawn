@@ -1,0 +1,6 @@
+main: v1c4t.localRespawn.Main
+name: LocalRespawn
+version: "1.0"
+api-version: "1.16"
+author: v1c4t
+description: Allows for players to respawn within a radius of their death location.
