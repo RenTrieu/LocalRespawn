@@ -1,4 +1,5 @@
-#Local Respawn
+Local Respawn:
+--------------
 A configurable Minecraft Spigot Plugin that allows for players to respawn 
 within a radius of their death location. Written for Spigot 1.16.4 API.
 
